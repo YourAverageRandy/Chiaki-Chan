@@ -22,14 +22,34 @@ public class wakeUp implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
-        int random = (int)(Math.random() * 4);
-        int random1 = (int)(Math.random() * 100000);
+        int random;
+        int random1 = (int)(Math.random() * 100);
         if(isOwner(event.getAuthor().getId())) {
             try {
-                TimeUnit.MILLISECONDS.sleep(random1);
+                int random2 = random1 / 10;
+                random = (int) (9 * random1 / 10.0);
+                TimeUnit.SECONDS.sleep(random2);
+                System.out.println("Waking up in " + random + " seconds.");
+                if(random1 < 5) {
+                    random1 = 5;
+                }
+                else{
+                }
+                random2 = random1 - random2 - 5;
+                TimeUnit.SECONDS.sleep(random2);
+                System.out.println("Waking up in 5 seconds.");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println("Waking up in 4 seconds.");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println("Waking up in 3 seconds.");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println("Waking up in 2 seconds.");
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println("Waking up in 1 second.");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            random = (int)(Math.random() * 4);
             switch(random) {
                 case 0:
                     event.getTextChannel().sendMessage("*yawn* Good morning my love ~~~ ");
@@ -61,10 +81,10 @@ public class wakeUp implements Command {
         random1 = (int) (Math.random() * 21 + 4);
         event.getTextChannel().sendMessage("*" + z.substring(0, random) + period.substring(0, random1) + "*");
         event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + " who're you?....");
-        }
         random = (int) (Math.random() * 21 + 4);
         random1 = (int) (Math.random() * 21 + 4);
         event.getTextChannel().sendMessage("*" + z.substring(0, random) + period.substring(0, random1) + "*");
+        }
     }
 
 
